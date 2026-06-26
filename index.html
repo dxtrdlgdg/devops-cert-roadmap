@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Certification Roadmap — AWS · Azure · GCP</title>
+<meta name="description" content="Complete learning roadmap for AWS DevOps Engineer, Azure AZ-400, and GCP Professional DevOps Engineer certifications. Includes phases, free resources, costs, and direct links.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --aws: #FF9900; --aws-bg: #fff8ee; --aws-bd: #e8860a; --aws-dark: #b35c00;
+  --az: #0078D4;  --az-bg: #eef6fd;  --az-bd: #0063b1;  --az-dark: #004a87;
+  --gcp: #34A853; --gcp-bg: #edfbf2; --gcp-bd: #1e7e34; --gcp-dark: #155724;
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --surface2: #f2f1ee;
+  --border: rgba(0,0,0,0.09);
+  --border-strong: rgba(0,0,0,0.18);
+  --text: #0d0d0d;
+  --text2: #4a4946;
+  --text3: #888580;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-lg: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
+  --font: 'Inter', sans-serif;
+  --font-display: 'Sora', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; }
+
+/* ── Nav ──────────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(247,246,243,0.92); backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 1.5rem;
+}
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; height: 56px; }
+.nav-logo { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text); text-decoration: none; flex-shrink: 0; }
+.nav-logo span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; }
+.nav-logo .dot-aws { background: var(--aws); }
+.nav-logo .dot-az  { background: var(--az); }
+.nav-logo .dot-gcp { background: var(--gcp); }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; margin-left: auto; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--text2); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px; background: var(--text); color: #fff; text-decoration: none; transition: opacity 0.15s; }
+.nav-cta:hover { opacity: 0.8; }
+@media(max-width:640px) { .nav-links { display: none; } }
+
+/* ── Hero ─────────────────────────────────────────────── */
+.hero { max-width: 1100px; margin: 0 auto; padding: 5rem 1.5rem 3rem; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin-bottom: 1.25rem; }
+.hero-eyebrow::before { content:''; display:block; width:24px; height:1.5px; background:var(--text3); }
+h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; color: var(--text); max-width: 800px; }
+h1 em { font-style: normal; position: relative; }
+h1 em::after { content:''; position:absolute; left:0; bottom:-2px; width:100%; height:3px; background:linear-gradient(90deg,var(--aws),var(--az),var(--gcp)); border-radius:2px; }
+.hero-sub { font-size: 1.05rem; color: var(--text2); max-width: 600px; margin-top: 1.25rem; line-height: 1.7; }
+.hero-cloud-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2rem; }
+.cloud-pill { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 500; text-decoration: none; border: 1.5px solid; transition: transform 0.15s, box-shadow 0.15s; }
+.cloud-pill:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.cloud-pill.aws { background: var(--aws-bg); color: var(--aws-dark); border-color: var(--aws-bd); }
+.cloud-pill.az  { background: var(--az-bg);  color: var(--az-dark);  border-color: var(--az-bd); }
+.cloud-pill.gcp { background: var(--gcp-bg); color: var(--gcp-dark); border-color: var(--gcp-bd); }
+.cloud-pill-dot { width: 8px; height: 8px; border-radius: 50%; }
+.cloud-pill.aws .cloud-pill-dot { background: var(--aws); }
+.cloud-pill.az  .cloud-pill-dot { background: var(--az); }
+.cloud-pill.gcp .cloud-pill-dot { background: var(--gcp); }
+
+/* ── Comparison table ─────────────────────────────────── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin-bottom: .75rem; }
+h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: 1.5rem; }
+.compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media(max-width:700px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow); }
+.compare-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+.cloud-badge { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.cloud-badge.aws { background: var(--aws-bg); }
+.cloud-badge.az  { background: var(--az-bg); }
+.cloud-badge.gcp { background: var(--gcp-bg); }
+.compare-card h3 { font-size: 15px; font-weight: 600; }
+.compare-card .sub { font-size: 12px; color: var(--text3); }
+.stat-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; }
+.stat-row:last-child { border-bottom: none; }
+.stat-row .label { color: var(--text3); }
+.stat-row .value { font-weight: 500; color: var(--text); }
+.cost-highlight { font-size: 22px; font-weight: 700; font-family: var(--font-display); margin: .75rem 0 .25rem; }
+.cost-highlight.aws { color: var(--aws-dark); }
+.cost-highlight.az  { color: var(--az-dark); }
+.cost-highlight.gcp { color: var(--gcp-dark); }
+
+/* ── Cert path / roadmap ──────────────────────────────── */
+.cloud-section { margin-bottom: 4rem; }
+.cloud-section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 0.5px solid var(--border); }
+.cloud-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.cloud-icon.aws { background: var(--aws-bg); }
+.cloud-icon.az  { background: var(--az-bg); }
+.cloud-icon.gcp { background: var(--gcp-bg); }
+.cloud-section-header h2 { margin-bottom: 0; font-size: 1.35rem; }
+
+.tier-block { margin-bottom: 2rem; }
+.tier-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 12px; border-radius: 999px; margin-bottom: 1rem; }
+.tier-pill.foundational { background: #f3f0ff; color: #5344b0; border: 0.5px solid #a89be0; }
+.tier-pill.associate    { background: #fff3e0; color: #b45309; border: 0.5px solid #f0a500; }
+.tier-pill.expert       { background: #e8f4fd; color: #0063b1; border: 0.5px solid #7bbde8; }
+.tier-pill.professional { background: #edfbf2; color: #1e7e34; border: 0.5px solid #6fcf8e; }
+
+.phases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.phase-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 14px; padding: 1.25rem; box-shadow: var(--shadow); border-left: 3px solid; transition: box-shadow 0.15s, transform 0.15s; cursor: pointer; }
+.phase-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+.phase-card.foundational { border-left-color: #a89be0; }
+.phase-card.associate    { border-left-color: #f0a500; }
+.phase-card.expert       { border-left-color: #7bbde8; }
+.phase-card.professional { border-left-color: #6fcf8e; }
+.phase-num { font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+.phase-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.35; }
+.phase-meta { font-size: 12px; color: var(--text3); margin-bottom: 10px; }
+.progress-bar { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-bottom: 12px; }
+.progress-fill { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+.phase-card.aws .progress-fill, .aws-section .progress-fill { background: var(--aws); }
+.phase-card.az .progress-fill, .az-section .progress-fill  { background: var(--az); }
+.phase-card.gcp .progress-fill, .gcp-section .progress-fill { background: var(--gcp); }
+.phase-topics { display: none; list-style: none; margin-top: 10px; padding-top: 10px; border-top: 0.5px solid var(--border); }
+.phase-topics.open { display: block; }
+.phase-topics li { font-size: 12px; color: var(--text2); padding: 3px 0; padding-left: 14px; position: relative; }
+.phase-topics li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; }
+.aws-section .phase-topics li::before { background: var(--aws); }
+.az-section  .phase-topics li::before { background: var(--az); }
+.gcp-section .phase-topics li::before { background: var(--gcp); }
+.phase-toggle { font-size: 12px; color: var(--text3); margin-top: 8px; display: flex; align-items: center; gap: 4px; }
+.phase-arrow { transition: transform 0.2s; display: inline-block; }
+.phase-arrow.open { transform: rotate(180deg); }
+
+/* ── Resources ────────────────────────────────────────── */
+.resources-tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.res-tab { padding: 7px 16px; border-radius: 999px; border: 0.5px solid var(--border-strong); font-size: 13px; font-weight: 500; cursor: pointer; background: var(--surface); color: var(--text2); transition: all 0.15s; }
+.res-tab.active, .res-tab:hover { background: var(--text); color: #fff; border-color: var(--text); }
+.res-panel { display: none; }
+.res-panel.active { display: block; }
+.res-cloud-block { margin-bottom: 2rem; }
+.res-cloud-label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; margin-bottom: 1rem; }
+.res-cloud-dot { width: 10px; height: 10px; border-radius: 50%; }
+.res-cloud-dot.aws { background: var(--aws); }
+.res-cloud-dot.az  { background: var(--az); }
+.res-cloud-dot.gcp { background: var(--gcp); }
+.resources-list { display: flex; flex-direction: column; gap: 10px; }
+.resource-item { background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 14px; box-shadow: var(--shadow); transition: box-shadow 0.15s, transform 0.15s; }
+.resource-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+.res-icon { font-size: 22px; flex-shrink: 0; }
+.res-info { flex: 1; min-width: 0; }
+.res-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.res-desc { font-size: 12px; color: var(--text2); margin-top: 2px; line-height: 1.5; }
+.res-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+.res-tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 0.5px solid var(--border); color: var(--text3); background: var(--surface2); }
+.res-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+.res-cost { font-size: 12px; font-weight: 600; }
+.res-cost.free { color: #1e7e34; }
+.res-cost.paid { color: #0063b1; }
+.res-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 999px; background: var(--text); color: #fff; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
+.res-link:hover { opacity: 0.75; }
+
+/* ── Footer ───────────────────────────────────────────── */
+footer { border-top: 0.5px solid var(--border); padding: 2rem 1.5rem; text-align: center; font-size: 13px; color: var(--text3); }
+footer a { color: var(--text2); }
+
+/* ── Misc ─────────────────────────────────────────────── */
+.divider { height: 0.5px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+.badge-free { display:inline-flex; align-items:center; font-size:11px; padding:2px 8px; border-radius:999px; background:#edfbf2; color:#1e7e34; border:0.5px solid #1e7e34; font-weight:600; }
+.badge-paid { display:inline-flex; align-items:center; font-size:11px; padding:2px 8px; border-radius:999px; background:#eef6fd; color:#0063b1; border:0.5px solid #0063b1; font-weight:600; }
+.note-box { background: var(--surface2); border-left: 3px solid var(--border-strong); border-radius: 0 10px 10px 0; padding: 10px 16px; font-size: 13px; color: var(--text2); margin-top: 1.5rem; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="dot-aws"></span><span class="dot-az"></span><span class="dot-gcp"></span>DevOps Certs
+    </a>
+    <ul class="nav-links">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+    <a href="#roadmap" class="nav-cta">Start learning →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">Cloud DevOps Certification Guide</div>
+  <h1>Your complete roadmap to <em>DevOps certification</em> across all three clouds</h1>
+  <p class="hero-sub">From foundational to professional — structured learning phases, curated free resources, exam costs, and direct links for AWS, Azure, and GCP.</p>
+  <div class="hero-cloud-pills">
+    <a href="#aws-section" class="cloud-pill aws"><span class="cloud-pill-dot"></span>AWS DevOps Engineer</a>
+    <a href="#az-section" class="cloud-pill az"><span class="cloud-pill-dot"></span>Azure AZ-400</a>
+    <a href="#gcp-section" class="cloud-pill gcp"><span class="cloud-pill-dot"></span>GCP Professional DevOps</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Comparison -->
+<section class="section" id="overview">
+  <div class="section-label">At a glance</div>
+  <h2>Exam comparison</h2>
+  <div class="compare-grid">
+
+    <div class="compare-card">
+      <div class="compare-card-header">
+        <div class="cloud-badge aws">☁</div>
+        <div><div class="compare-card h3" style="font-size:15px;font-weight:600;">AWS</div><div class="sub">Cloud Practitioner → DevOps Engineer</div></div>
+      </div>
+      <div class="cost-highlight aws">$400 total</div>
+      <div style="font-size:12px;color:var(--text3);margin-bottom:.75rem;">CLF-C02 ($100) + DVA-C02 ($300)</div>
+      <div class="stat-row"><span class="label">Foundational</span><span class="value">CLF-C02 · $100</span></div>
+      <div class="stat-row"><span class="label">Target cert</span><span class="value">DVA-C02 · $300</span></div>
+      <div class="stat-row"><span class="label">Duration</span><span class="value">130 min · 65 questions</span></div>
+      <div class="stat-row"><span class="label">Passing score</span><span class="value">720 / 1000</span></div>
+      <div class="stat-row"><span class="label">Validity</span><span class="value">3 years</span></div>
+      <div class="stat-row"><span class="label">Prerequisite</span><span class="value">None (CLF recommended)</span></div>
+      <div class="stat-row"><span class="label">Study time</span><span class="value">16–24 weeks total</span></div>
+    </div>
+
+    <div class="compare-card">
+      <div class="compare-card-header">
+        <div class="cloud-badge az">⬡</div>
+        <div><div style="font-size:15px;font-weight:600;">Azure</div><div class="sub">AZ-900 → AZ-104/204 → AZ-400</div></div>
+      </div>
+      <div class="cost-highlight az">$495 total</div>
+      <div style="font-size:12px;color:var(--text3);margin-bottom:.75rem;">AZ-900 + AZ-104/204 + AZ-400 · $165 each</div>
+      <div class="stat-row"><span class="label">Foundational</span><span class="value">AZ-900 · $165</span></div>
+      <div class="stat-row"><span class="label">Prerequisite cert</span><span class="value">AZ-104 or AZ-204 · $165</span></div>
+      <div class="stat-row"><span class="label">Target cert</span><span class="value">AZ-400 · $165</span></div>
+      <div class="stat-row"><span class="label">Duration</span><span class="value">150 min · 40–60 questions</span></div>
+      <div class="stat-row"><span class="label">Passing score</span><span class="value">700 / 1000</span></div>
+      <div class="stat-row"><span class="label">Validity</span><span class="value">1 year (free renewal)</span></div>
+      <div class="stat-row"><span class="label">Study time</span><span class="value">24–34 weeks total</span></div>
+    </div>
+
+    <div class="compare-card">
+      <div class="compare-card-header">
+        <div class="cloud-badge gcp">◆</div>
+        <div><div style="font-size:15px;font-weight:600;">GCP</div><div class="sub">Cloud Digital Leader → ACE → Pro DevOps</div></div>
+      </div>
+      <div class="cost-highlight gcp">$600 total</div>
+      <div style="font-size:12px;color:var(--text3);margin-bottom:.75rem;">CDL + ACE + Pro DevOps · $200 each</div>
+      <div class="stat-row"><span class="label">Foundational</span><span class="value">Cloud Digital Leader · $200</span></div>
+      <div class="stat-row"><span class="label">Associate</span><span class="value">Cloud Engineer (ACE) · $200</span></div>
+      <div class="stat-row"><span class="label">Target cert</span><span class="value">Pro DevOps Engineer · $200</span></div>
+      <div class="stat-row"><span class="label">Duration</span><span class="value">120 min · ~50–60 questions</span></div>
+      <div class="stat-row"><span class="label">Passing score</span><span class="value">Not disclosed (pass/fail)</span></div>
+      <div class="stat-row"><span class="label">Validity</span><span class="value">2 years</span></div>
+      <div class="stat-row"><span class="label">Study time</span><span class="value">22–30 weeks total</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Roadmap -->
+<section class="section" id="roadmap">
+  <div class="section-label">Learning phases</div>
+  <h2>Full certification roadmap</h2>
+  <p style="font-size:14px;color:var(--text2);margin-bottom:2rem;">Click any phase card to expand its topics. Progress bars show how far through each path the phase sits.</p>
+
+  <!-- AWS -->
+  <div class="cloud-section aws-section" id="aws-section">
+    <div class="cloud-section-header">
+      <div class="cloud-icon aws">☁</div>
+      <div>
+        <h2 style="margin-bottom:2px;">AWS DevOps Engineer Associate</h2>
+        <div style="font-size:13px;color:var(--text3);">CLF-C02 → DVA-C02 · 16–24 weeks · $400 total</div>
+      </div>
+    </div>
+    <div id="aws-phases-container"></div>
+  </div>
+
+  <!-- Azure -->
+  <div class="cloud-section az-section" id="az-section">
+    <div class="cloud-section-header">
+      <div class="cloud-icon az">⬡</div>
+      <div>
+        <h2 style="margin-bottom:2px;">Azure DevOps Engineer Expert (AZ-400)</h2>
+        <div style="font-size:13px;color:var(--text3);">AZ-900 → AZ-104/204 → AZ-400 · 24–34 weeks · $495 total</div>
+      </div>
+    </div>
+    <div id="az-phases-container"></div>
+  </div>
+
+  <!-- GCP -->
+  <div class="cloud-section gcp-section" id="gcp-section">
+    <div class="cloud-section-header">
+      <div class="cloud-icon gcp">◆</div>
+      <div>
+        <h2 style="margin-bottom:2px;">GCP Professional DevOps Engineer</h2>
+        <div style="font-size:13px;color:var(--text3);">CDL → ACE → Pro DevOps · 22–30 weeks · $600 total</div>
+      </div>
+    </div>
+    <div id="gcp-phases-container"></div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- Resources -->
+<section class="section" id="resources">
+  <div class="section-label">Learning materials</div>
+  <h2>Free &amp; paid resources</h2>
+  <div class="resources-tabs">
+    <button class="res-tab active" onclick="switchRes('free')">Free resources</button>
+    <button class="res-tab" onclick="switchRes('paid')">Paid resources</button>
+  </div>
+  <div id="res-free" class="res-panel active"></div>
+  <div id="res-paid" class="res-panel"></div>
+  <div class="note-box">💡 Udemy courses regularly go on sale for $10–20 — never pay full price. All three cloud providers also occasionally offer free exam vouchers after attending official virtual training events.</div>
+</section>
+
+<footer>
+  <p>Built as a learning reference for cloud DevOps certifications · AWS, Azure &amp; GCP paths · <a href="#overview">Back to top ↑</a></p>
+</footer>
+
+<script>
+const awsPhases = [
+  { tier:"foundational", num:"F1", title:"AWS Cloud Practitioner — cloud concepts", duration:"Weeks 1–2", effort:"~16 hrs", progress:15, cloud:"aws",
+    topics:["What is cloud computing & AWS","Global infrastructure (regions, AZs, edge)","Core services overview (EC2, S3, RDS, Lambda)","AWS pricing models & billing","Shared responsibility model","AWS support plans & compliance basics"] },
+  { tier:"foundational", num:"F2", title:"AWS Cloud Practitioner — exam prep", duration:"Weeks 3–4", effort:"~16 hrs", progress:30, cloud:"aws",
+    topics:["Well-Architected Framework pillars","Security fundamentals (IAM, MFA, KMS)","Cloud economics & TCO","Exam-style question practice","CLF-C02 practice tests","Review weak areas before sitting exam"] },
+  { tier:"associate", num:"A1", title:"AWS foundations & DevOps concepts", duration:"Weeks 5–7", effort:"~24 hrs", progress:42, cloud:"aws",
+    topics:["AWS CLI, SDK & CloudShell hands-on","VPC networking deep dive","IAM roles, policies & SCP","DevOps culture & principles","Agile & CI/CD methodology overview","AWS Well-Architected — DevOps lens"] },
+  { tier:"associate", num:"A2", title:"CI/CD pipelines & developer tools", duration:"Weeks 8–11", effort:"~32 hrs", progress:57, cloud:"aws",
+    topics:["CodeCommit — source control","CodeBuild — build automation","CodeDeploy — deployment strategies","CodePipeline — orchestration","Elastic Beanstalk deployments","Blue/green & canary strategies","Deployment rollback patterns","CodeArtifact & dependency mgmt"] },
+  { tier:"associate", num:"A3", title:"Infrastructure as Code & config mgmt", duration:"Weeks 12–16", effort:"~40 hrs", progress:72, cloud:"aws",
+    topics:["CloudFormation templates & stacks","CloudFormation StackSets & drift","AWS CDK basics","Systems Manager (SSM) & Parameter Store","ECS — container deployments","EKS — Kubernetes on AWS","EC2 Auto Scaling lifecycle hooks","OpsWorks (Chef/Puppet)"] },
+  { tier:"associate", num:"A4", title:"Monitoring, security & exam prep", duration:"Weeks 17–24", effort:"~48 hrs", progress:100, cloud:"aws",
+    topics:["CloudWatch metrics, alarms & dashboards","CloudTrail & AWS Config rules","X-Ray distributed tracing","EventBridge & SNS/SQS patterns","Secrets Manager vs Parameter Store","High availability & fault tolerance","TutorialsDojo practice exams","Gap review & final revision"] }
+];
+
+const azPhases = [
+  { tier:"foundational", num:"F1", title:"AZ-900 — Azure core concepts", duration:"Weeks 1–2", effort:"~14 hrs", progress:10, cloud:"az",
+    topics:["Cloud concepts & deployment models","Azure architecture & core services","Azure pricing, SLAs & lifecycle","Compliance, privacy & data protection","Azure portal & basic navigation","Identity, governance & security basics"] },
+  { tier:"foundational", num:"F2", title:"AZ-900 — exam prep", duration:"Week 3", effort:"~8 hrs", progress:18, cloud:"az",
+    topics:["Practice tests (Microsoft Learn)","Review Azure pricing calculator","Understand support plans","Exam tips & question strategy","MeasureUp/Whizlabs free samples","Sit AZ-900 exam"] },
+  { tier:"associate", num:"P1", title:"AZ-104 or AZ-204 — prerequisite cert", duration:"Weeks 4–10", effort:"~56 hrs", progress:38, cloud:"az",
+    topics:["Azure AD, RBAC & identity mgmt","Virtual networks, NSGs & load balancers","Azure VMs, App Service & storage","Monitoring & Azure Policy","(AZ-204) App development on Azure","(AZ-204) Azure Functions & API Management"] },
+  { tier:"expert", num:"E1", title:"Azure DevOps & CI/CD pipelines", duration:"Weeks 11–15", effort:"~40 hrs", progress:54, cloud:"az",
+    topics:["Azure DevOps services overview","Azure Repos — Git workflows","Azure Pipelines — YAML & classic","Build agents & hosted runners","GitHub Actions for Azure","Release gates & approvals","Blue/green & canary in Azure","Azure Container Registry (ACR)"] },
+  { tier:"expert", num:"E2", title:"Infrastructure as Code & config", duration:"Weeks 16–20", effort:"~40 hrs", progress:70, cloud:"az",
+    topics:["ARM Templates authoring","Bicep — modern ARM replacement","Terraform on Azure","Azure Automation & DSC","Azure Arc for hybrid infra","AKS — Azure Kubernetes Service","Azure App Service deployment slots","Azure Policy & Blueprints"] },
+  { tier:"expert", num:"E3", title:"Monitoring, security & compliance", duration:"Weeks 21–25", effort:"~40 hrs", progress:85, cloud:"az",
+    topics:["Azure Monitor & Log Analytics","Application Insights (APM)","Azure Alerts & Action Groups","Microsoft Defender for DevOps","Key Vault — secrets & certs","Service connections & permissions","DAST/SAST in pipelines","Security compliance scanning"] },
+  { tier:"expert", num:"E4", title:"Dependency mgmt, testing & exam prep", duration:"Weeks 26–34", effort:"~56 hrs", progress:100, cloud:"az",
+    topics:["Azure Artifacts — npm, NuGet, Maven","Testing strategy in pipelines","Load testing with Azure Load Testing","SRE principles & SLOs","Feature flags & progressive delivery","MeasureUp AZ-400 practice exams","Review Microsoft exam objectives","Gap review & final revision"] }
+];
+
+const gcpPhases = [
+  { tier:"foundational", num:"F1", title:"Cloud Digital Leader — cloud fundamentals", duration:"Weeks 1–2", effort:"~14 hrs", progress:10, cloud:"gcp",
+    topics:["Cloud concepts & Google Cloud overview","Digital transformation with Google Cloud","Innovating with data & AI on GCP","Infrastructure & application modernization","Google Workspace collaboration tools","Security, compliance & privacy overview"] },
+  { tier:"foundational", num:"F2", title:"Cloud Digital Leader — exam prep", duration:"Week 3", effort:"~8 hrs", progress:18, cloud:"gcp",
+    topics:["Google Cloud Skills Boost modules","Review core GCP product categories","Practice sample questions","Cloud Digital Leader exam strategy","Revisit weak topic areas","Sit Cloud Digital Leader exam"] },
+  { tier:"associate", num:"A1", title:"ACE — core GCP services & infrastructure", duration:"Weeks 4–8", effort:"~40 hrs", progress:38, cloud:"gcp",
+    topics:["Compute Engine — VMs & instance groups","Google Kubernetes Engine (GKE) basics","Cloud Storage, Firestore & Cloud SQL","VPC networking, firewall rules & routing","IAM roles, service accounts & org policies","Cloud SDK, gcloud CLI & Cloud Shell"] },
+  { tier:"associate", num:"A2", title:"ACE — deployment, monitoring & exam prep", duration:"Weeks 9–12", effort:"~32 hrs", progress:52, cloud:"gcp",
+    topics:["App Engine & Cloud Run deployments","Cloud Monitoring & Cloud Logging basics","Load balancing & auto-scaling","Billing management & cost optimization","ACE practice exams (Whizlabs/Skills Boost)","Sit Associate Cloud Engineer exam"] },
+  { tier:"professional", num:"P1", title:"CI/CD with Cloud Build & GKE", duration:"Weeks 13–17", effort:"~40 hrs", progress:65, cloud:"gcp",
+    topics:["Cloud Source Repositories — Git hosting","Cloud Build — build & test automation","Cloud Deploy — progressive delivery","Artifact Registry — container & package mgmt","GKE advanced — workloads & namespaces","Cloud Run — serverless containers","Deployment strategies on GKE","Binary Authorization & supply chain security"] },
+  { tier:"professional", num:"P2", title:"IaC, config mgmt & SRE", duration:"Weeks 18–22", effort:"~40 hrs", progress:80, cloud:"gcp",
+    topics:["Terraform on GCP (preferred IaC)","Anthos Config Management (ACM)","Config Sync & GitOps patterns","SLOs, SLIs & error budgets","Cloud Monitoring dashboards & alerting","Cloud Trace, Profiler & Error Reporting","Managed Prometheus on GKE","Incident management & postmortems"] },
+  { tier:"professional", num:"P3", title:"Security, governance & exam prep", duration:"Weeks 23–30", effort:"~48 hrs", progress:100, cloud:"gcp",
+    topics:["Cloud Armor, Secret Manager & KMS","VPC Service Controls & Org policies","Security Command Center","Binary Authorization & vulnerability scanning","SRE book review (sre.google/books)","GCP Professional DevOps practice exams","Whizlabs + official sample questions","Gap review & final revision"] }
+];
+
+const resources = {
+  aws: {
+    free:[
+      {icon:"📖",name:"AWS Skill Builder",desc:"Official AWS e-learning — free courses for CLF-C02, DevOps tools, CloudFormation, CloudWatch and more",tags:["Official","All levels","Video"],url:"https://skillbuilder.aws"},
+      {icon:"📄",name:"AWS Documentation",desc:"Official service docs — always up to date and exam-aligned",tags:["Official","Reference"],url:"https://docs.aws.amazon.com"},
+      {icon:"📄",name:"AWS Well-Architected Framework",desc:"Core whitepaper covering the 6 pillars — heavily tested on both CLF and DVA exams",tags:["Whitepaper","Official"],url:"https://aws.amazon.com/architecture/well-architected"},
+      {icon:"📄",name:"DevOps on AWS whitepaper",desc:"Deep-dive whitepaper covering CI/CD, IaC, monitoring — core DVA-C02 reading",tags:["Whitepaper","DevOps"],url:"https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/introduction-devops-aws.html"},
+      {icon:"🎥",name:"freeCodeCamp AWS courses (YouTube)",desc:"Full free courses for Cloud Practitioner and DevOps topics — no subscription needed",tags:["YouTube","Video","Beginner-friendly"],url:"https://www.youtube.com/c/freecodecamp"},
+      {icon:"🎥",name:"AWS re:Invent sessions (YouTube)",desc:"Hundreds of free deep-dive DevOps, IaC, and observability sessions from AWS conferences",tags:["YouTube","Deep dive","Official"],url:"https://www.youtube.com/@AWSEventsChannel"},
+      {icon:"🛠",name:"AWS Free Tier",desc:"12-month free access to EC2, S3, CloudFormation, CodePipeline — essential for hands-on labs",tags:["Hands-on","Official","12 months"],url:"https://aws.amazon.com/free"},
+      {icon:"📝",name:"TutorialsDojo cheat sheets",desc:"Concise, community-loved cheat sheets for every AWS service — great for revision",tags:["Cheat sheets","Revision"],url:"https://tutorialsdojo.com/aws-cheat-sheets"},
+      {icon:"📝",name:"AWS sample questions (CLF-C02)",desc:"Official free sample questions for Cloud Practitioner from AWS",tags:["Official","Practice","CLF"],url:"https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf"},
+      {icon:"📝",name:"AWS sample questions (DVA-C02)",desc:"Official free sample questions for DevOps Engineer Associate from AWS",tags:["Official","Practice","DVA"],url:"https://d1.awsstatic.com/training-and-certification/docs-devops-engineer-professional/AWS-Certified-DevOps-Engineer-Professional_Sample-Questions.pdf"},
+    ],
+    paid:[
+      {icon:"🎬",name:"Stephane Maarek – AWS CLF (Udemy)",desc:"Most popular Cloud Practitioner course on Udemy — regularly updated, beginner-friendly",tags:["Udemy","Video","CLF"],cost:"~$15–20",url:"https://www.udemy.com/course/aws-certified-cloud-practitioner-new"},
+      {icon:"🎬",name:"Stephane Maarek – AWS DevOps (Udemy)",desc:"Top-rated DVA-C02 course — thorough, hands-on, covers all exam domains",tags:["Udemy","Video","DVA"],cost:"~$15–20",url:"https://www.udemy.com/course/aws-certified-devops-engineer-professional-hands-on"},
+      {icon:"✅",name:"TutorialsDojo practice exams (CLF)",desc:"6 full-length timed practice tests with detailed explanations for CLF-C02",tags:["Practice tests","Timed","CLF"],cost:"~$15",url:"https://portal.tutorialsdojo.com/product/aws-certified-cloud-practitioner-practice-exams"},
+      {icon:"✅",name:"TutorialsDojo practice exams (DVA)",desc:"6 full-length timed practice tests with detailed explanations for DVA-C02",tags:["Practice tests","Timed","DVA"],cost:"~$15",url:"https://portal.tutorialsdojo.com/product/aws-certified-developer-associate-practice-exams"},
+      {icon:"☁",name:"A Cloud Guru — AWS paths",desc:"Platform with videos, labs, and sandboxed AWS environments for Practitioner through DevOps Associate",tags:["Video","Labs","Sandbox"],cost:"~$49/mo",url:"https://acloudguru.com/browse-training?type=course&platform=aws"},
+    ]
+  },
+  az: {
+    free:[
+      {icon:"📖",name:"Microsoft Learn — AZ-900 path",desc:"Official free interactive learning path for Azure Fundamentals with free sandboxes",tags:["Official","AZ-900","Interactive"],url:"https://learn.microsoft.com/en-us/certifications/azure-fundamentals"},
+      {icon:"📖",name:"Microsoft Learn — AZ-104 path",desc:"Official free learning path for Azure Administrator Associate",tags:["Official","AZ-104","Interactive"],url:"https://learn.microsoft.com/en-us/certifications/azure-administrator"},
+      {icon:"📖",name:"Microsoft Learn — AZ-204 path",desc:"Official free learning path for Azure Developer Associate",tags:["Official","AZ-204","Interactive"],url:"https://learn.microsoft.com/en-us/certifications/azure-developer"},
+      {icon:"📖",name:"Microsoft Learn — AZ-400 path",desc:"Official free learning path covering all AZ-400 DevOps Engineer Expert exam domains",tags:["Official","AZ-400","Interactive"],url:"https://learn.microsoft.com/en-us/certifications/devops-engineer"},
+      {icon:"🛠",name:"Azure DevOps Labs",desc:"Free hands-on labs by Microsoft covering Azure Pipelines, Boards, Repos, and Test Plans",tags:["Hands-on","Official","AZ-400"],url:"https://azuredevopslabs.com"},
+      {icon:"🎥",name:"John Savill's Azure content (YouTube)",desc:"Free study crams for AZ-900, AZ-104, and AZ-400 by a top Azure educator",tags:["YouTube","All levels","In-depth"],url:"https://www.youtube.com/@NTFAQGuy"},
+      {icon:"🎓",name:"Azure free account ($200 credit)",desc:"$200 credit + 12 months of free services — enough to practice AKS, Bicep, Key Vault, and Pipelines",tags:["Hands-on","Free credit","Official"],url:"https://azure.microsoft.com/free"},
+      {icon:"🔗",name:"GitHub Skills — Actions & CI/CD",desc:"Free interactive GitHub courses on Git workflows, GitHub Actions, and CI/CD",tags:["Hands-on","GitHub","Free"],url:"https://skills.github.com"},
+      {icon:"📄",name:"AZ-900 official study guide (PDF)",desc:"Free PDF from Microsoft mapping AZ-900 objectives to Learn modules",tags:["Official","PDF","AZ-900"],url:"https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3VwUY"},
+      {icon:"📄",name:"AZ-400 official study guide (PDF)",desc:"Free PDF from Microsoft mapping AZ-400 objectives to Learn modules",tags:["Official","PDF","AZ-400"],url:"https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3VP8d"},
+    ],
+    paid:[
+      {icon:"🎬",name:"Alan Rodrigues — AZ-900 (Udemy)",desc:"Top-rated AZ-900 course on Udemy — clear, well-structured for beginners",tags:["Udemy","Video","AZ-900"],cost:"~$15–20",url:"https://www.udemy.com/course/az900-azure"},
+      {icon:"🎬",name:"Scott Duffy — AZ-400 (Udemy)",desc:"Comprehensive AZ-400 course covering all exam domains with demos and labs",tags:["Udemy","Video","AZ-400"],cost:"~$15–20",url:"https://www.udemy.com/course/azure400"},
+      {icon:"✅",name:"MeasureUp — AZ-900 practice tests",desc:"Official Microsoft practice test partner — scenario-based, mirrors real exam difficulty",tags:["Practice tests","Official","AZ-900"],cost:"~$99",url:"https://www.measureup.com/az-900-microsoft-azure-fundamentals.html"},
+      {icon:"✅",name:"MeasureUp — AZ-400 practice tests",desc:"Official Microsoft practice test partner for AZ-400 DevOps Engineer Expert",tags:["Practice tests","Official","AZ-400"],cost:"~$99",url:"https://www.measureup.com/az-400-designing-and-implementing-microsoft-devops-solutions.html"},
+      {icon:"🎓",name:"Pluralsight — Azure learning paths",desc:"Full paths for all three cert levels with skill assessments and sandboxed labs",tags:["Video","Labs","All levels"],cost:"~$45/mo",url:"https://www.pluralsight.com/cloud/azure"},
+    ]
+  },
+  gcp: {
+    free:[
+      {icon:"📖",name:"Google Cloud Skills Boost (free tier)",desc:"Official platform with free-tier paths for Cloud Digital Leader, ACE, and Professional DevOps Engineer",tags:["Official","All levels","Labs"],url:"https://cloudskillsboost.google"},
+      {icon:"📄",name:"Cloud Digital Leader exam guide",desc:"Official free exam guide from Google listing every tested topic for CDL",tags:["Official","PDF","CDL"],url:"https://cloud.google.com/learn/certification/cloud-digital-leader"},
+      {icon:"📄",name:"Associate Cloud Engineer exam guide",desc:"Official free exam guide from Google for ACE certification",tags:["Official","PDF","ACE"],url:"https://cloud.google.com/learn/certification/cloud-engineer"},
+      {icon:"📄",name:"Professional DevOps Engineer exam guide",desc:"Official free exam guide from Google for Professional DevOps Engineer",tags:["Official","PDF","Pro DevOps"],url:"https://cloud.google.com/learn/certification/cloud-devops-engineer"},
+      {icon:"🎥",name:"Google Cloud Tech (YouTube)",desc:"Official channel with deep-dives on Cloud Build, GKE, Cloud Deploy, SRE, and Terraform",tags:["YouTube","Official","All levels"],url:"https://www.youtube.com/@googlecloudtech"},
+      {icon:"📚",name:"Site Reliability Engineering book",desc:"Google's SRE book — free to read online. Essential for Professional DevOps exam",tags:["Free book","SRE","Pro DevOps"],url:"https://sre.google/sre-book/table-of-contents"},
+      {icon:"📚",name:"The SRE Workbook",desc:"Practical companion to the SRE book — free online, covers SLOs, error budgets, and on-call",tags:["Free book","SRE","Practical"],url:"https://sre.google/workbook/table-of-contents"},
+      {icon:"🛠",name:"Google Cloud free trial ($300 credit)",desc:"$300 credit valid for 90 days — enough for GKE, Cloud Build, Terraform, and monitoring labs",tags:["Hands-on","Free credit","Official"],url:"https://cloud.google.com/free"},
+      {icon:"🔗",name:"HashiCorp Learn — Terraform on GCP",desc:"Free official Terraform tutorials for GCP covering providers, state, modules, and GKE deployments",tags:["Hands-on","Terraform","Free"],url:"https://developer.hashicorp.com/terraform/tutorials/gcp-get-started"},
+      {icon:"🎥",name:"freeCodeCamp — GCP ACE (YouTube)",desc:"Free full-length Associate Cloud Engineer study course on YouTube",tags:["YouTube","Video","ACE"],url:"https://www.youtube.com/watch?v=jpno8FSqpc8"},
+    ],
+    paid:[
+      {icon:"🎬",name:"Dan Sullivan — GCP ACE (Udemy)",desc:"Comprehensive ACE course by a GCP certified trainer — exam-focused and regularly updated",tags:["Udemy","Video","ACE"],cost:"~$15–20",url:"https://www.udemy.com/course/google-cloud-associate-cloud-engineer"},
+      {icon:"🎬",name:"Dan Sullivan — GCP Pro DevOps (Udemy)",desc:"Professional DevOps Engineer course covering all exam domains in depth",tags:["Udemy","Video","Pro DevOps"],cost:"~$15–20",url:"https://www.udemy.com/course/google-cloud-professional-devops-engineer-gcp"},
+      {icon:"✅",name:"Whizlabs — GCP ACE practice tests",desc:"Full-length practice tests with explanations for Associate Cloud Engineer",tags:["Practice tests","ACE","Timed"],cost:"~$20",url:"https://www.whizlabs.com/google-cloud-certified-associate-cloud-engineer"},
+      {icon:"✅",name:"Whizlabs — GCP Professional DevOps",desc:"Practice tests for Professional DevOps Engineer with detailed explanations",tags:["Practice tests","Pro DevOps","Timed"],cost:"~$20",url:"https://www.whizlabs.com/google-cloud-certified-professional-devops-engineer"},
+      {icon:"🎓",name:"Google Cloud Skills Boost (premium)",desc:"Full lab catalog with sandboxed GCP environments and guided quests for all three cert levels",tags:["Labs","Official","Sandbox"],cost:"~$29/mo",url:"https://cloudskillsboost.google/catalog"},
+    ]
+  }
+};
+
+/* ── Render phases ── */
+const tierOrder = ['foundational','associate','expert','professional'];
+function renderPhases(containerId, phases, cloud) {
+  const c = document.getElementById(containerId);
+  let html = ''; let lastTier = null;
+  phases.forEach((p, i) => {
+    if (p.tier !== lastTier) {
+      const labels = {foundational:'Foundational',associate:'Associate',expert:'Expert',professional:'Professional'};
+      html += `<div class="tier-block"><div class="tier-pill ${p.tier}">${labels[p.tier]}</div><div class="phases-grid">`;
+      lastTier = p.tier;
+      const remaining = phases.slice(i).filter(x => x.tier === p.tier);
+    }
+    html += `<div class="phase-card ${p.tier} ${cloud}" onclick="togglePhase('${cloud}-${i}')">
+      <div class="phase-num">${p.num} · ${p.duration}</div>
+      <div class="phase-title">${p.title}</div>
+      <div class="phase-meta">${p.effort}</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${p.progress}%"></div></div>
+      <div class="phase-toggle">Topics <span class="phase-arrow" id="arr-${cloud}-${i}">▼</span></div>
+      <ul class="phase-topics" id="topics-${cloud}-${i}">
+        ${p.topics.map(t=>`<li>${t}</li>`).join('')}
+      </ul>
+    </div>`;
+    const next = phases[i+1];
+    if (!next || next.tier !== p.tier) html += `</div></div>`;
+  });
+  c.innerHTML = html;
+}
+
+function togglePhase(id) {
+  document.getElementById('topics-'+id).classList.toggle('open');
+  document.getElementById('arr-'+id).classList.toggle('open');
+}
+
+/* ── Render resources ── */
+function renderResources(type) {
+  const panelId = 'res-' + type;
+  const panel = document.getElementById(panelId);
+  const clouds = [{key:'aws',label:'AWS',dot:'aws'},{key:'az',label:'Azure',dot:'az'},{key:'gcp',label:'GCP',dot:'gcp'}];
+  panel.innerHTML = clouds.map(cl => {
+    const items = resources[cl.key][type];
+    return `<div class="res-cloud-block">
+      <div class="res-cloud-label"><span class="res-cloud-dot ${cl.dot}"></span>${cl.label}</div>
+      <div class="resources-list">
+        ${items.map(r=>`<div class="resource-item">
+          <div class="res-icon">${r.icon}</div>
+          <div class="res-info">
+            <div class="res-name">${r.name}</div>
+            <div class="res-desc">${r.desc}</div>
+            <div class="res-tags">${r.tags.map(t=>`<span class="res-tag">${t}</span>`).join('')}</div>
+          </div>
+          <div class="res-right">
+            <span class="res-cost ${type === 'free' ? 'free' : 'paid'}">${type === 'free' ? 'Free' : (r.cost || 'Paid')}</span>
+            <a class="res-link" href="${r.url}" target="_blank" rel="noopener">Visit ↗</a>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function switchRes(type) {
+  document.querySelectorAll('.res-tab').forEach((t,i) => t.classList.toggle('active', (i===0&&type==='free')||(i===1&&type==='paid')));
+  document.querySelectorAll('.res-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('res-'+type).classList.add('active');
+}
+
+renderPhases('aws-phases-container', awsPhases, 'aws');
+renderPhases('az-phases-container', azPhases, 'az');
+renderPhases('gcp-phases-container', gcpPhases, 'gcp');
+renderResources('free');
+renderResources('paid');
+</script>
+</body>
+</html>
