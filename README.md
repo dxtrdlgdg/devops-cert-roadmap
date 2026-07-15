@@ -2,7 +2,7 @@
 
 A complete, interactive learning roadmap for cloud DevOps certifications across **AWS**, **Azure**, and **GCP**.
 
-🌐 **Live site:** `https://<your-username>.github.io/<repo-name>/`
+🌐 **Live site:** `[https://<your-username>.github.io/<repo-name>/](https://dxtrdlgdg.github.io/devops-cert-roadmap/)`
 
 ## What's inside
 
